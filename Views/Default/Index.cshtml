@@ -1,0 +1,29 @@
+﻿@using CoreDepartman.Models
+@model List<Birim>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+<br />
+<h4>| Birimler</h4>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Birim Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.BirimID</td>
+            <td>@x.BirimAd</td>
+            <td><a href="/Default/BirimSil/@x.BirimID" class="btn btn-danger"><b>Sil</b></a></td>
+            <td><a href="/Default/BirimGetir/@x.BirimID" class="btn btn-success"><b>Güncelle</b></a></td>
+            <td><a href="/Default/BirimDetay/@x.BirimID" class="btn btn" style="background-color:#dee61d"><b>Detaylar</b></a></td>
+        </tr>
+    }
+</table>
+<a href="/Default/YeniBirim" class="btn btn-primary">Yeni Birim</a>
+
